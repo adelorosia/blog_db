@@ -1,14 +1,20 @@
-### Get All Users
-GET http://localhost:3005/api/user
-
 ### Login User
 POST http://localhost:3005/api/login
 Content-Type: application/json
 
 {
     "email":"amin_roumi@yahoo.com",
-    "password":"1234567"
+    "password":"123456"
 }
+
+### Get All Users
+GET http://localhost:3005/api/user
+
+
+### Refresh Token
+GET http://localhost:3005/token
+
+
 
 ### Register User
 POST http://localhost:3005/api/register

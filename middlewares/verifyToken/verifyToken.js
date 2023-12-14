@@ -10,5 +10,7 @@ export const verifyToken = (req, res, next) => {
       req.userId = decoded.userId;
       next();
     });
-  } catch (error) {}
+  } catch (error) {
+    res.json(error);
+  }
 };

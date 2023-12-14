@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema(
     bio: {
       type: String,
     },
-    profilePhoto: {
+    profile_photo: {
       type: String,
       default:
         "https://res.cloudinary.com/ddruqkbvb/image/upload/v1702504687/ujzsldxkoup07e6el2x1.webp",
@@ -34,7 +34,7 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    accessToken: {
+    refresh_token: {
       type: String,
     },
   },

@@ -14,12 +14,11 @@ export const getAllUsers = asyncHandler(async (req, res) => {
 export const registerUser = asyncHandler(async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
   const foundUser = await User.findOne({ email });
-  if (foundUser)
-    {
-      throw new Error(
-        "Ein Benutzer mit dieser E-Mail-Addresse ist bereit registeriert"
-      );
-    }
+  if (foundUser) {
+    throw new Error(
+      "Ein Benutzer mit dieser E-Mail-Addresse ist bereit registeriert"
+    );
+  }
   try {
     await User.create({
       firstName,
@@ -36,15 +35,14 @@ export const registerUser = asyncHandler(async (req, res) => {
 export const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const foundUser = await User.findOne({ email });
-  if (foundUser && await foundUser.isPasswordMatched(password)) {
+  if (foundUser && (await foundUser.isPasswordMatched(password))) {
     const userId = foundUser._id;
     const firstName = foundUser.firstName;
     const lastName = foundUser.lastName;
     const email = foundUser.email;
     const admin = foundUser.isAdmin;
     const photo = foundUser.profilePhoto;
-    const accessToken = foundUser.accessToken;
-    const token = jwt.sign(
+    const accessToken = jwt.sign(
       {
         userId,
         firstName,
@@ -52,20 +50,35 @@ export const loginUser = asyncHandler(async (req, res) => {
         email,
         admin,
         photo,
-        accessToken,
       },
       process.env.ACCESS_TOKEN_SECRET,
+      {
+        expiresIn: "30s",
+      }
+    );
+
+    const refreshToken = jwt.sign(
+      {
+        userId,
+        firstName,
+        lastName,
+        email,
+        admin,
+        photo,
+      },
+      process.env.REFRESH_TOKEN_SECRET,
       {
         expiresIn: "1d",
       }
     );
-    await User.findByIdAndUpdate(userId, { accessToken:token });
-    res.cookie("token", token, {
+    await User.findByIdAndUpdate(userId, { refresh_token: refreshToken });
+    res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
     });
-    res.json({ token });
+    res.json({ accessToken });
   } else {
+    res.status(401);
     throw new Error("Die E-mail-Addresse oder der Password ist nicht korrekt");
   }
 });
