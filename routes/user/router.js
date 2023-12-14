@@ -9,8 +9,9 @@ import {
 
 const router = express.Router();
 
-router.get("/api/user", getAllUsers);
-router.post("/api/register", registerUser);
 router.post("/api/login", loginUser);
+router.post("/api/register", registerUser);
+
+router.get("/api/user", getAllUsers);
 
 export default router;

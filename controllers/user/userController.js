@@ -36,7 +36,7 @@ export const registerUser = asyncHandler(async (req, res) => {
 export const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const foundUser = await User.findOne({ email });
-  if (foundUser && foundUser.isPasswordMatched(password)) {
+  if (foundUser && await foundUser.isPasswordMatched(password)) {
     const userId = foundUser._id;
     const firstName = foundUser.firstName;
     const lastName = foundUser.lastName;

@@ -6,8 +6,8 @@ POST http://localhost:3005/api/login
 Content-Type: application/json
 
 {
-    "email":"khalil_hauvas@yahoo.com",
-    "password":"1234"
+    "email":"amin_roumi@yahoo.com",
+    "password":"1234567"
 }
 
 ### Register User
@@ -18,5 +18,5 @@ Content-Type: application/json
     "firstName":"Amin",
     "lastName":"Roumi",
     "email":"amin_roumi@yahoo.com",
-    "password":"1234"
+    "password":"123456"
 }
