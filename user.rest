@@ -1,0 +1,22 @@
+### Get All Users
+GET http://localhost:3005/api/user
+
+### Login User
+POST http://localhost:3005/api/login
+Content-Type: application/json
+
+{
+    "email":"khalil_hauvas@yahoo.com",
+    "password":"1234"
+}
+
+### Register User
+POST http://localhost:3005/api/register
+Content-Type: application/json
+
+{
+    "firstName":"Adel",
+    "lastName":"Namazi",
+    "email":"adel_namazi@yahoo.com",
+    "password":"1234"
+}
