@@ -15,8 +15,8 @@ POST http://localhost:3005/api/register
 Content-Type: application/json
 
 {
-    "firstName":"Adel",
-    "lastName":"Namazi",
-    "email":"adel_namazi@yahoo.com",
+    "firstName":"Amin",
+    "lastName":"Roumi",
+    "email":"amin_roumi@yahoo.com",
     "password":"1234"
 }
