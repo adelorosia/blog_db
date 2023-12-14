@@ -1,5 +1,17 @@
+# Ignoriere Dateien und Verzeichnisse, die von Systemen oder IDEs erzeugt werden
+.vscode/
+.idea/
+
+# Ignoriere Kompilierungs- und Build-Dateien
 node_modules/
-/build/
+dist/
+build/
+
+# Ignoriere Konfigurationsdateien für bestimmte Entwicklungsumgebungen
+*.config.js
 .env
+
+# Ignoriere temporäre Dateien und Verzeichnisse
 *.log
+*.tmp
 .DS_Store
