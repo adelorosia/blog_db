@@ -77,8 +77,7 @@ export const loginUser = asyncHandler(async (req, res) => {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
       secure: process.env.NODE_ENV === 'production',
-      domain:"https://blog-db-lq6k.onrender.com"
-
+      sameSite: 'None',
 
     });
     res.json({ accessToken });
