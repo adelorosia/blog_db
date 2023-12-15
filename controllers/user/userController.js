@@ -76,6 +76,10 @@ export const loginUser = asyncHandler(async (req, res) => {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
+      secure: process.env.NODE_ENV === 'production',
+      domain:"https://blog-db-lq6k.onrender.com"
+
+
     });
     res.json({ accessToken });
   } else {
