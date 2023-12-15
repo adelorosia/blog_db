@@ -77,7 +77,8 @@ export const loginUser = asyncHandler(async (req, res) => {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'None',
+      sameSite: 'lax',
+      secure:false
 
     });
     res.json({ accessToken });
