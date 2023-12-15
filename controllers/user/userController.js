@@ -79,7 +79,7 @@ export const loginUser = asyncHandler(async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: 'none',
       secure: false,
-      domain: "https://blog-db-lq6k.onrender.com",
+      domain: "blog-db-lq6k.onrender.com",
     });
     res.json({ accessToken });
   } else {
