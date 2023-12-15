@@ -72,14 +72,14 @@ export const loginUser = asyncHandler(async (req, res) => {
       }
     );
     await User.findByIdAndUpdate(userId, { refresh_token: refreshToken });
-    console.log(refreshToken)
+    console.log(refreshToken);
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      secure:false
-
+      secure: process.env.NODE_ENV === "production",
+      sameSite: 'none',
+      secure: false,
+      domain: "https://blog-db-lq6k.onrender.com",
     });
     res.json({ accessToken });
   } else {
