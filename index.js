@@ -14,7 +14,7 @@ const app = express();
 
 app.use(express.json());
 app.use(
-  cors({ credentials: true, origin: "https://blog-db-lq6k.onrender.com" })
+  cors({ credentials: true, origin: "http://localhost:3000" })
 );
 app.use(cookieParser());
 
