@@ -1,8 +1,7 @@
-import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 import User from "../../models/user/userModel.js";
 
-export const refreshToken = asyncHandler(async (req, res) => {
+export const refreshToken = async (req, res) => {
   try {
     const refreshToken = req.cookies.refreshToken;
     if (!refreshToken) return res.sendStatus(401);
@@ -39,4 +38,4 @@ export const refreshToken = asyncHandler(async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-});
+};

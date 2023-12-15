@@ -72,6 +72,7 @@ export const loginUser = asyncHandler(async (req, res) => {
       }
     );
     await User.findByIdAndUpdate(userId, { refresh_token: refreshToken });
+    console.log(refreshToken)
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,

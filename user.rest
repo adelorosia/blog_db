@@ -3,7 +3,7 @@ POST http://localhost:3005/api/login
 Content-Type: application/json
 
 {
-    "email":"amin_roumi@yahoo.com",
+    "email":"adel_orosia@yahoo.com",
     "password":"123456"
 }
 
