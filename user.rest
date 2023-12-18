@@ -10,6 +10,10 @@ Content-Type: application/json
 ### Get All Users
 GET http://localhost:3005/api/user
 
+### Get User
+GET http://localhost:3005/api/user/display
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTdmOGZlZGI1YzA4NzM3ZDBjYjNlY2YiLCJmaXJzdE5hbWUiOiJBZGVsIiwibGFzdE5hbWUiOiJOYW1hemkiLCJlbWFpbCI6ImFkZWxfb3Jvc2lhQHlhaG9vLmNvbSIsImFkbWluIjpmYWxzZSwiaWF0IjoxNzAyODk0NTM2LCJleHAiOjE3MDI4OTQ1NjZ9.z7XbvXBTOlFIlfxJBeASv6GLVMmWchmiC3tTSTocSxs
+
 
 ### Refresh Token
 GET http://localhost:3005/token

@@ -11,6 +11,16 @@ export const getAllUsers = asyncHandler(async (req, res) => {
   }
 });
 
+export const getUser = asyncHandler(async (req, res) => {
+  try {
+    const id=req.userId
+    const user = await User.findById(id);
+    res.json(user);
+  } catch (error) {
+    res.json(error);
+  }
+});
+
 export const registerUser = asyncHandler(async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
   const foundUser = await User.findOne({ email });
