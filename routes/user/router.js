@@ -16,6 +16,6 @@ router.post("/api/login", loginUser);
 router.post("/api/register", registerUser);
 
 router.get("/api/user", getAllUsers);
-router.get("/api/user/display", verifyToken, getUser);
+router.get("/api/user/display/:id", getUser);
 
 export default router;
